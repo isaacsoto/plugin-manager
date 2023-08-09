@@ -1,43 +1,22 @@
 <template>
-  <v-container>
-    <v-list lines="one">
-      <v-list-item
-        v-for="product in products"
-        :key="product.id"
-        :title="product.name"
-        :subtitle="product.description"
-        :prepend-avatar="product.images['240w']"
-      ></v-list-item>
-    </v-list>
-
-    <v-table>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Description
-          </th>
-          <th class="text-left">
-            Image
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="product in products"
-          :key="product.id"
-        >
-          <td>{{ product.name }}</td>
-          <td>{{ product.description }}</td>
-          <td>
-            <img v-bind:src="`${product.images['240w']}`" style="width: 50px; height:50px">
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
-  </v-container>
+    <v-card>
+      <v-card-title>
+        Plugins
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="products"
+        :search="search">
+      </v-data-table>
+    </v-card>
 </template>
 
 <script>
@@ -48,6 +27,16 @@ export default {
 
   data() {
     return {
+      search: '',
+      headers: [
+        {
+          align: 'start',
+          key: 'name',
+          sortable: true,
+          title: 'Plugin',
+        },
+        { key: 'description', title: 'Description' },
+      ],
       products: [],
     };
   },

@@ -21,7 +21,16 @@ export default {
         
       ],
       products: [],
+      dialog: false,
+      selectedItem: null,
     };
+  },
+
+  methods: {
+    openDialog(item) {
+      this.selectedItem = item;
+      this.dialog = true;
+    },
   },
 
   async mounted() {

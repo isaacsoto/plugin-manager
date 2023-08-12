@@ -15,6 +15,9 @@ export default {
           title: 'Plugin',
         },
         { key: 'description', title: 'Description' },
+        { key: 'images', title: 'Image' },
+        { key: 'installers', title: 'Installers' },
+        
       ],
       products: [],
     };
@@ -29,12 +32,4 @@ export default {
       console.error('Error fetching products:', error);
     }
   },
-  
-  methods: {
-    // eslint-disable-next-line
-    rowClass(item) {
-        const rowClass = 'blue-row'
-        return rowClass;
-    }
-  }
 };

@@ -11,7 +11,6 @@ import ProductsTableView from './components/products-table-view/products-table-v
 
 export default {
   name: 'App',
-
   components: {
     ProductsTableView,
   },

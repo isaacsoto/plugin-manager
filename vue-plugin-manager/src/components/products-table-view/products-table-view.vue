@@ -11,22 +11,32 @@
     ></v-text-field>
   </v-toolbar>
   <v-data-table
+    v-model:expanded="expanded"
     :headers="headers"
     :items="products"
     :search="search"
-    :items-per-page="products.length">
-    <template v-slot:headers="{ columns }">
-      <tr class="invisible">
-        <template v-for="column in columns" :key="column.key">
-          <td>
-            <span>{{ column.title }}</span>
-          </td>
-        </template>
-      </tr>
+    :items-per-page="products.length"
+    show-expand
+    item-value="name"
+    class="elevation-1">
+    <template v-slot:[`item.description`]="{ item }">
+      <span class="font-weight-thin text-caption">
+        {{ item.columns.description }}
+      </span>
     </template>
-    <template v-slot:item="{ item }">
+    <template v-slot:[`item.images`]="{ item }">
+      <span>
+        {{ item.columns.name }}
+      </span>
+    </template>
+    <template v-slot:[`item.installers`]="{ item }">
+      <span>
+        {{ item.columns.installers?.win64?.version }}
+      </span>
+    </template>
+    <template v-slot:expanded-row="{ columns, item }">
       <tr class="big-row">
-        <div class="table-item">
+        <td :colspan="columns.length">
           <img v-bind:src="`${item.columns.images['240w']}`">
           <v-card variant="tonal" class="table-item-card">
             <v-card-title>{{ item.columns.name }}</v-card-title>
@@ -34,11 +44,12 @@
           </v-card>
           <v-card variant="tonal" class="table-item-card">
             <v-card-item>{{ item.columns.installers?.win64?.version }}</v-card-item>
-            <!--<v-card-item>{{ item.columns.installers }}</v-card-item>-->
+            <v-card-item>{{ item.columns.installers?.macOs?.version }}</v-card-item>
           </v-card>
-        </div>
+        </td>
       </tr>
     </template>
+
   </v-data-table>
 </template>
 

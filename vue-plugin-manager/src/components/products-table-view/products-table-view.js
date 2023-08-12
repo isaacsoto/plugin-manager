@@ -7,6 +7,7 @@ export default {
   data() {
     return {
       search: '',
+      expanded: [],
       headers: [
         {
           align: 'start',

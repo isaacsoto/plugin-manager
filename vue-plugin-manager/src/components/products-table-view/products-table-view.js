@@ -31,6 +31,11 @@ export default {
       this.selectedItem = item;
       this.dialog = true;
     },
+
+    filterByName(value, query, item) {
+      const keyword = query.trim().toUpperCase();
+      return item.name?.toUpperCase().includes(keyword);
+    }
   },
 
   async mounted() {

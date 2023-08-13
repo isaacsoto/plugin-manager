@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ProductsTableExpandedRow from '@/components/products-table-view/products-table-expanded-row/products-table-expanded-row.vue';
+import ProductsTableExpandedRow from '@/components/products-table-view/products-table/products-table-expanded-row/products-table-expanded-row.vue';
 
 export default {
   props: {

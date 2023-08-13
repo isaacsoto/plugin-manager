@@ -1,5 +1,4 @@
-// ProductsTableViewScript.js
-import { fetchProducts } from './products';
+import { fetchProducts } from '@/api/products';
 import ProductsTable from '@/components/products-table-view/products-table/products-table.vue';
 import ProductImageDialog from '@/components/products-table-view/product-image-dialog/product-image-dialog.vue';
 

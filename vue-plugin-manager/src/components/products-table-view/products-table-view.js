@@ -1,6 +1,7 @@
 // ProductsTableViewScript.js
 import { fetchProducts } from './products';
-import ProductsTableExpandedRow from '@/components/products-table-view/products-table-expanded-row/products-table-expanded-row.vue';
+import ProductsTable from '@/components/products-table-view/products-table/products-table.vue';
+import ProductImageDialog from '@/components/products-table-view/product-image-dialog/product-image-dialog.vue';
 
 export default {
   name: 'ProductsTableView',
@@ -36,7 +37,11 @@ export default {
     filterByName(value, query, item) {
       const keyword = query.trim().toUpperCase();
       return item.name?.toUpperCase().includes(keyword);
-    }
+    },
+
+    updateExpanded(newExpanded) {
+      this.expanded = newExpanded;
+    },
   },
 
   async mounted() {
@@ -50,7 +55,8 @@ export default {
   },
 
   components: {
-    ProductsTableExpandedRow,
+    ProductsTable,
+    ProductImageDialog,
   },
 
 };

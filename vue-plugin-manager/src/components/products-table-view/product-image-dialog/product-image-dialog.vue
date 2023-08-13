@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="internalDialog" width="500px">
+  <v-dialog v-model="internalDialog" width="400px">
     <template v-if="selectedItem">
       <v-btn icon class="dialog-close-button" @click="closeDialog">
         <v-icon>mdi-close</v-icon>

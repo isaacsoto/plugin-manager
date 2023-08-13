@@ -15,6 +15,7 @@
     :headers="headers"
     :items="products"
     :search="search"
+    :custom-filter="filterByName"
     :items-per-page="products.length"
     show-expand
     item-value="name"

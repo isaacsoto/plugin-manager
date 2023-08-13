@@ -1,5 +1,6 @@
 // ProductsTableViewScript.js
 import { fetchProducts } from './products';
+import ProductsTableExpandedRow from '@/components/products-table-view/products-table-expanded-row/products-table-expanded-row.vue';
 
 export default {
   name: 'ProductsTableView',
@@ -47,4 +48,9 @@ export default {
       console.error('Error fetching products:', error);
     }
   },
+
+  components: {
+    ProductsTableExpandedRow,
+  },
+
 };

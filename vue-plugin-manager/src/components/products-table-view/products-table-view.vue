@@ -41,19 +41,7 @@
       </span>
     </template>
     <template v-slot:expanded-row="{ columns, item }">
-      <tr class="big-row">
-        <td :colspan="columns.length">
-          <img v-bind:src="`${item.columns.images['240w']}`">
-          <v-card variant="tonal" class="table-item-card">
-            <v-card-title>{{ item.columns.name }}</v-card-title>
-            <v-card-text>{{ item.columns.description }}</v-card-text>
-          </v-card>
-          <v-card variant="tonal" class="table-item-card">
-            <v-card-item>{{ item.columns.installers?.win64?.version }}</v-card-item>
-            <v-card-item>{{ item.columns.installers?.macOs?.version }}</v-card-item>
-          </v-card>
-        </td>
-      </tr>
+      <ProductsTableExpandedRow :columns="columns" :item="item" />
     </template>
 
   </v-data-table>
@@ -73,11 +61,11 @@
 import ProductsTableViewScript from './products-table-view';
 
 export default {
-  ...ProductsTableViewScript
+  ...ProductsTableViewScript,
 }
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import './products-table-view.scss';
 </style>

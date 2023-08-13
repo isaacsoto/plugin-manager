@@ -9,7 +9,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             // Add the following line to allow loading external URLs
-            webSecurity: false,
+            //webSecurity: false,
         }
     });
 

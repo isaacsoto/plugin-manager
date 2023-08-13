@@ -1,10 +1,13 @@
 <template>
-  <v-dialog v-model="internalDialog" width="350px">
+  <v-dialog v-model="internalDialog" width="500px">
     <template v-if="selectedItem">
+      <v-btn icon class="dialog-close-button" @click="closeDialog">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
       <v-img :src="selectedItem.raw?.images['480w']"></v-img>
       <v-card>
-        <v-card-title>{{ selectedItem.raw?.name }}</v-card-title>
-        <v-card-text>{{ selectedItem.raw?.description }}</v-card-text>
+        <v-card-title class="dialog-card-title">{{ selectedItem.raw?.name }}</v-card-title>
+        <v-card-text class="small-text">{{ selectedItem.raw?.description }}</v-card-text>
       </v-card>
     </template>
   </v-dialog>
@@ -27,6 +30,11 @@ export default {
     },
     internalDialog(newValue) {
       this.$emit('update:dialog', newValue);
+    },
+  },
+  methods: {
+    closeDialog() {
+      this.internalDialog = false;
     },
   },
 };

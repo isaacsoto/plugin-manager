@@ -1,5 +1,8 @@
 # plugin-manager
 A plug-in visualizer and manager that uses a plugin catalog API
+
+![Plugin Manager Screenshot](assets/Screenshot.png)
+
 ## Getting Started
 
 To get started with the plugin-manager application, follow these steps:

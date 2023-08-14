@@ -17,7 +17,7 @@ function createWindow() {
   //mainWindow.loadURL('http://localhost:8080/');
 
   // production
-  mainWindow.loadFile('../dist/index.html'); 
+  mainWindow.loadFile('../vue-plugin-manager/dist/index.html'); 
 
   mainWindow.on('closed', function () {
     mainWindow = null;

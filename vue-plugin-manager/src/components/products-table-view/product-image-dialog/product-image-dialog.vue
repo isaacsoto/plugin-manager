@@ -13,32 +13,12 @@
 </template>
   
 <script>
+import ProductImageDialogScript from './product-image-dialog';
+
 export default {
-  props: {
-    dialog: Boolean,
-    selectedItem: Object,
-  },
-  data() {
-    return {
-      internalDialog: this.dialog,
-    };
-  },
-  watch: {
-    dialog(newValue) {
-      this.internalDialog = newValue;
-    },
-    internalDialog(newValue) {
-      this.$emit('update:dialog', newValue);
-    },
-  },
-  methods: {
-    closeDialog() {
-      this.internalDialog = false;
-    },
-  },
-};
-</script>
-  
+  ...ProductImageDialogScript,
+}
+</script> 
   
 <style scoped>
 @import './product-image-dialog.scss';

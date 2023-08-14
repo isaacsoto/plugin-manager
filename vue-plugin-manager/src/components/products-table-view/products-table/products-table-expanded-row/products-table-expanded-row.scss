@@ -1,3 +1,40 @@
-.big-row {
-    height: 150px !important;
+.expanded-row {
+  display: flex;
+  align-items: center; /* Center vertically */
+  padding: 1rem;
+}
+
+.expanded-image {
+  width: auto; /* Adjust the width */
+  height: 200px; /* Adjust the height */
+  margin-right: 1rem;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.table-item-card {
+  width: calc(100% - 200px); /* Set a specific width for the card */
+  display: flex;
+  height: 200px; /* Set a fixed height */
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-left: 1rem; /* Add a small margin between image and card */
+}
+
+.expanded-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.feature-highlight {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.v-btn {
+  text-transform: none; /* Prevent uppercase text in button */
 }

@@ -7,7 +7,6 @@
       <v-img :src="selectedItem.raw?.images['480w']"></v-img>
       <v-card>
         <v-card-title class="dialog-card-title">{{ selectedItem.raw?.name }}</v-card-title>
-        <v-card-text class="small-text">{{ selectedItem.raw?.description }}</v-card-text>
       </v-card>
     </template>
   </v-dialog>

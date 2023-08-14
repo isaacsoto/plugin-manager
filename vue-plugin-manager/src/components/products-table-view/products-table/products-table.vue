@@ -7,6 +7,7 @@
     :custom-filter="customFilter"
     show-expand
     height="598px"
+    width="100%"
     fixed-header
     fixed-footer
     item-value="name"
@@ -24,7 +25,7 @@
     </template>
     <template v-slot:[`item.installers`]="{ item }">
       <span class="table-text-color">
-        {{ item.columns.installers?.win64?.version }}
+        {{ item.columns.installers?.win64?.version || '-' }}
       </span>
     </template>
     <template v-slot:expanded-row="{ columns, item }">

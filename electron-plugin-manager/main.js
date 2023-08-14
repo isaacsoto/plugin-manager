@@ -10,10 +10,14 @@ function createWindow() {
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
-    }
+    },
   });
 
-  mainWindow.loadURL('http://localhost:8080/');
+  // development
+  //mainWindow.loadURL('http://localhost:8080/');
+
+  // production
+  mainWindow.loadFile('../dist/index.html'); 
 
   mainWindow.on('closed', function () {
     mainWindow = null;
@@ -30,6 +34,6 @@ app.on('window-all-closed', function () {
 
 app.on('activate', function () {
   if (mainWindow === null) {
-      createWindow();
+    createWindow();
   }
 });

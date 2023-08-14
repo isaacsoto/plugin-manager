@@ -1,4 +1,4 @@
-# plugin-manager
+# Plugin Manager
 A plug-in visualizer and manager that uses a plugin catalog API
 
 ![Plugin Manager Screenshot](assets/Screenshot.png)

@@ -23,6 +23,7 @@ export default {
       products: [],
       dialog: false,
       selectedItem: null,
+      tableMessage: 'Loading data...',
     };
   },
 
@@ -34,7 +35,15 @@ export default {
 
     filterByName(value, query, item) {
       const keyword = query.trim().toUpperCase();
-      return item.name?.toUpperCase().includes(keyword);
+      const isMatch = item && item.name?.toUpperCase().includes(keyword);
+
+      if (!item || !isMatch) {
+        this.tableMessage = 'No results found.';
+      } else {
+        this.tableMessage = '';
+      }
+
+      return isMatch;
     },
 
     updateExpanded(newExpanded) {
@@ -45,10 +54,15 @@ export default {
   async mounted() {
     try {
       const response = await fetchProducts();
-      // Assuming the API response is in the format you provided
-      this.products = response.result;
+      if (response.result.length === 0) {
+        this.tableMessage = 'No data available.';
+      } else {
+        this.products = response.result;
+        this.tableMessage = ''; // Clear the message if data is available
+      }
     } catch (error) {
       console.error('Error fetching products:', error);
+      this.tableMessage = 'An error occurred while fetching data.';
     }
   },
 

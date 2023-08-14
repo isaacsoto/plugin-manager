@@ -13,6 +13,9 @@
     item-value="name"
     class="elevation-1"
   >
+    <template #no-data>
+        <div class="text-center">{{ tableMessage }}</div>
+    </template>
     <template v-slot:[`item.name`]="{ item }">
       <a href="#" @click.prevent="openDialog(item)" class="text-decoration-none">
         {{ item.columns.name }}
@@ -48,6 +51,7 @@ export default {
     search: String,
     customFilter: Function,
     itemsPerPage: Number,
+    tableMessage: String,
   },
   methods: {
     openDialog(item) {

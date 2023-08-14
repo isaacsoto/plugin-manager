@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import ProductsTableViewScript from '@/views/products-table-view';
+import ProductsTableViewScript from './products-table-view';
 
 export default {
   ...ProductsTableViewScript,
@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import '@/views/products-table-view';
+  @import './products-table-view';
 </style>

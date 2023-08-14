@@ -11,7 +11,7 @@
             <v-card-item class="version no-padding-top no-padding-bottom" v-if="item.raw?.installers?.win64?.version">
               Version: {{ item.raw?.installers?.win64?.version }}
             </v-card-item>
-            <v-card-actions class="no-padding-top">
+            <v-card-actions v-if="item.raw?.url" class="no-padding-top">
               <v-btn  variant="tonal" color="#00c795" @click="openExternalURL">WEBSITE</v-btn>
             </v-card-actions>
           </div>
@@ -22,17 +22,11 @@
 </template>
 
 <script>
+import ProductsTableExpandedRowScript from './products-table-expanded-row';
+
 export default {
-  props: {
-    columns: Array,
-    item: Object,
-  },
-  methods: {
-    openExternalURL() {
-      window.open('https://www.softube.com' + this.item.raw?.url, '_blank');
-    },
-  },
-};
+  ...ProductsTableExpandedRowScript,
+}
 </script>
 
 <style scoped lang="scss">

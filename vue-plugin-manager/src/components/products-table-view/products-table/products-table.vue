@@ -6,7 +6,7 @@
     :search="search"
     :custom-filter="customFilter"
     show-expand
-    height="598px"
+    height="618px"
     width="100%"
     fixed-header
     fixed-footer

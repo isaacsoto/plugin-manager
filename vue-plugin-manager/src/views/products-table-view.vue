@@ -21,6 +21,7 @@
       :items="products"
       :search="search"
       :custom-filter="filterByName"
+      :tableMessage='tableMessage'
       @open-dialog="openDialog"
       @expanded-change="updateExpanded"
     />

@@ -1,5 +1,8 @@
-const { defineConfig } = require('@vue/cli-service')
+const webpack = require('webpack');
+const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
+  filenameHashing: false,
+  
   transpileDependencies: true,
 
   devServer: {
@@ -16,5 +19,16 @@ module.exports = defineConfig({
     vuetify: {
 			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
 		}
-  }
+  },
+
+  configureWebpack: {
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          // Define your API URL here for different environments
+          VUE_APP_API_URL: JSON.stringify('https://cdn.softube.com/api/v1'),
+        },
+      }),
+    ],
+  },
 })

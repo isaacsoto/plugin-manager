@@ -1,5 +1,6 @@
-// ProductsTableViewScript.js
-import { fetchProducts } from './products';
+import { fetchProducts } from '@/api/products';
+import ProductsTable from '@/components/products-table-view/products-table/products-table.vue';
+import ProductImageDialog from '@/components/products-table-view/product-image-dialog/product-image-dialog.vue';
 
 export default {
   name: 'ProductsTableView',
@@ -13,11 +14,10 @@ export default {
           align: 'start',
           key: 'name',
           sortable: true,
-          title: 'Plugin',
+          title: 'Product',
         },
-        { key: 'description', title: 'Description' },
-        { key: 'images', title: 'Image' },
-        { key: 'installers', title: 'Installers' },
+        { key: 'description', title: 'Description', sortable: false },
+        { key: 'installers', title: 'Version',  align: 'end' },
         
       ],
       products: [],
@@ -35,7 +35,11 @@ export default {
     filterByName(value, query, item) {
       const keyword = query.trim().toUpperCase();
       return item.name?.toUpperCase().includes(keyword);
-    }
+    },
+
+    updateExpanded(newExpanded) {
+      this.expanded = newExpanded;
+    },
   },
 
   async mounted() {
@@ -47,4 +51,10 @@ export default {
       console.error('Error fetching products:', error);
     }
   },
+
+  components: {
+    ProductsTable,
+    ProductImageDialog,
+  },
+
 };

@@ -1,0 +1,65 @@
+$text-highlight-color: #00c795;
+$height: 210px;
+
+.expanded-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.expanded-image {
+  width: $height; 
+  height: $height;  
+  flex-shrink: 0; 
+}
+
+.table-item-card {
+  width: calc( 100% - $height); 
+  display: flex;
+  height: $height; 
+  margin-left: 1rem;
+}
+
+.normal-white-space {
+  white-space: normal;
+}
+
+.expanded-info {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0rem;
+}
+
+.no-padding-top {
+  padding-top: 0rem;
+}
+
+.feature-highlight {
+  font-size: 10px;
+  font-weight: bold;
+  color: $text-highlight-color;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.version {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.v-card-actions {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.v-btn {
+  text-transform: none;
+}

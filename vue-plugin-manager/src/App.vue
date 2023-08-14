@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ProductsTableView from './components/products-table-view/products-table-view.vue'
+import ProductsTableView from '@/views/products-table-view.vue'
 
 export default {
   name: 'App',
@@ -16,3 +16,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>

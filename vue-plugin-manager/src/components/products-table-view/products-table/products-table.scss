@@ -1,0 +1,31 @@
+$text-color: #BDBDBD;
+$text-hover-color: #00c795;
+
+.small-text {
+  font-size: 0.85rem;
+}
+
+.table-text-color {
+  color: $text-color
+}
+
+a:link {
+  color: $text-color;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: $text-color;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: $text-hover-color;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: $text-hover-color;
+  background-color: transparent;
+  text-decoration: underline;
+}

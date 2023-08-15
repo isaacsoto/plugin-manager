@@ -3,10 +3,10 @@ import axios from 'axios';
 const DEFAULT_PAGE_SIZE = 1000;
 
 // development
-//const BASE_URL = '/api';
+const BASE_URL = '/api';
 
 // production
-const BASE_URL = process.env.VUE_APP_API_URL;
+//const BASE_URL = process.env.VUE_APP_API_URL;
 
 const PRODUCTS_URL = BASE_URL + '/products';
 

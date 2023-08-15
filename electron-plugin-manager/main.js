@@ -14,10 +14,10 @@ function createWindow() {
   });
 
   // development
-  //mainWindow.loadURL('http://localhost:8080/');
+  mainWindow.loadURL('http://localhost:8080/');
 
   // production
-  mainWindow.loadFile('./dist/index.html'); 
+  //mainWindow.loadFile('./dist/index.html'); 
 
   mainWindow.on('closed', function () {
     mainWindow = null;

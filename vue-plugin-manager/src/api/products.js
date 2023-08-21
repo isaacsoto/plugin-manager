@@ -2,13 +2,11 @@ import axios from 'axios';
 
 const DEFAULT_PAGE_SIZE = 1000;
 
-// development
-const BASE_URL = '/api';
+const API_BASE_URL = process.env.NODE_ENV === 'production'
+  ? process.env.VUE_APP_API_URL // Production API URL
+  : '/api'; // Development API URL
 
-// production
-//const BASE_URL = process.env.VUE_APP_API_URL;
-
-const PRODUCTS_URL = BASE_URL + '/products';
+const PRODUCTS_URL = API_BASE_URL + '/products';
 
 export const fetchProducts = async (pageSize = DEFAULT_PAGE_SIZE) => {
   const params = new URLSearchParams();

@@ -35,14 +35,8 @@ export default {
 
     filterByName(value, query, item) {
       const keyword = query.trim().toUpperCase();
-      const isMatch = item && item.name?.toUpperCase().includes(keyword);
-
-      if (!item || !isMatch) {
-        this.tableMessage = 'No results found.';
-      } else {
-        this.tableMessage = '';
-      }
-
+      const isMatch = item?.name?.toUpperCase().includes(keyword);
+      this.tableMessage = isMatch ? '' : 'No results found.';
       return isMatch;
     },
 
@@ -51,19 +45,16 @@ export default {
     },
   },
 
-  async mounted() {
-    try {
-      const response = await fetchProducts();
-      if (response.result.length === 0) {
-        this.tableMessage = 'No data available.';
-      } else {
-        this.products = response.result;
-        this.tableMessage = ''; // Clear the message if data is available
-      }
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      this.tableMessage = 'An error occurred while fetching data.';
-    }
+  mounted() {
+    fetchProducts()
+      .then(response => {
+        this.tableMessage = response.result.length === 0 ? 'No data available.' : '';
+        this.products = response.result.length === 0 ? [] : response.result;
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+        this.tableMessage = 'An error occurred while fetching data.';
+      });
   },
 
   components: {

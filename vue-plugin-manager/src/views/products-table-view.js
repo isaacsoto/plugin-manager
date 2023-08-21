@@ -1,3 +1,4 @@
+import { shuffle } from 'txt-shuffle';
 import { fetchProducts } from '@/api/products';
 import ProductsTable from '@/components/products-table-view/products-table/products-table.vue';
 import ProductImageDialog from '@/components/products-table-view/product-image-dialog/product-image-dialog.vue';
@@ -8,6 +9,7 @@ export default {
   data() {
     return {
       search: '',
+      animatedLabel: 'Search',
       expanded: [],
       headers: [
         {
@@ -46,15 +48,23 @@ export default {
   },
 
   mounted() {
-    fetchProducts()
-      .then(response => {
-        this.tableMessage = response.result.length === 0 ? 'No data available.' : '';
-        this.products = response.result.length === 0 ? [] : response.result;
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-        this.tableMessage = 'An error occurred while fetching data.';
-      });
+    fetchProducts().then(response => {
+      this.tableMessage = response.result.length === 0 ? 'No data available.' : '';
+      this.products = response.result.length === 0 ? [] : response.result;
+    }).catch(error => {
+      console.error('Error fetching products:', error);
+      this.tableMessage = 'An error occurred while fetching data.';
+    });
+    shuffle({
+      text: 'Search', // Text to be animated
+      fps: 10, // Set your desired frames per second
+      onUpdate: output => {
+        this.animatedLabel = output; // Update the animatedLabel variable
+      },
+      onComplete: output => {
+        this.animatedLabel = output; // Ensure the final label is set
+      },
+    });
   },
 
   components: {

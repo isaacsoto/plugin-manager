@@ -8,7 +8,7 @@
       <v-text-field
         hide-details
         v-model="search"
-        label="Search"
+        :label="animatedLabel"
         prepend-icon="mdi-magnify"
         single-line
       ></v-text-field>
